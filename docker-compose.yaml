@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  server:
+    build:
+      context: ./server
+    ports:
+      - 5000:5000
+  front:
+    build:
+      context: ./front
+    ports:
+      - 8000:8000
