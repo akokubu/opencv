@@ -2,3 +2,4 @@ __pycache__
 .mypy_cache
 lena.jpg
 gray_lena.jpg
+static/task

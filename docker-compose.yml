@@ -1,11 +1,22 @@
 version: "3.8"
 services:
   server:
-    build: .
+    build:
+      context: ./server
     volumes:
-      - ./:/server:delegated
+      - ./server:/server:delegated
     ports:
       - 5000:5000
     tty: true
     working_dir: /server
-    # command: FLASK_APP=app.py flask run -h 0.0.0.0
+    entrypoint: make start
+  front:
+    build:
+      context: ./front
+    volumes:
+      - ./front:/front:delegated
+    ports:
+      - 8000:8000
+    tty: true
+    working_dir: /front
+    entrypoint: elm reactor
